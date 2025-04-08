@@ -1,52 +1,147 @@
+/* Általános stílusok */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
 }
+
+/* Fejléc stílusai */
 header {
-    background: #007bff;
-    color: white;
-    text-align: center;
-    padding: 1rem;
+  background: #007bff;
+  color: white;
+  text-align: center;
+  padding: 1rem;
 }
+
+/* Navigációs menü */
 nav ul {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    background: #333;
+  list-style: none;
+  padding: 0;
+  display: flex;
+  background: #333;
 }
+
 nav ul li {
-    flex: 1;
+  flex: 1;
 }
+
 nav ul li a {
-    display: block;
-    padding: 15px;
-    text-align: center;
-    color: white;
-    text-decoration: none;
+  display: block;
+  padding: 15px;
+  text-align: center;
+  color: white;
+  text-decoration: none;
 }
+
 nav ul li a.active, nav ul li a:hover {
-    background: #007bff;
+  background: #007bff;
 }
+
+/* Navigációs linkek színváltozása */
+nav a:hover {
+  background-color: #575757;
+}
+
+/* Oldalsáv (Aside) */
 aside {
-    background: #ddd;
-    padding: 1rem;
-    width: 20%;
-    float: left;
-    min-height: 400px;
+  background: #ddd;
+  padding: 1rem;
+  width: 20%;
+  float: left;
+  min-height: 400px;
 }
+
+/* Tartalom */
 .content {
-    margin-left: 22%;
-    padding: 2rem;
-    background: white;
-    min-height: 400px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-left: 22%;
+  padding: 2rem;
+  background: white;
+  min-height: 400px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+
+/* Lábléc */
 footer {
-    background: #333;
-    color: white;
-    text-align: center;
-    padding: 1rem;
-    margin-top: 20px;
+  background: #333;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  margin-top: 20px;
+}
+
+/* Main terület */
+main {
+  padding: 20px;
+}
+
+/* Formák */
+form input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+}
+
+button {
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+/* Táblázat */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background: #fff;
+}
+
+th, td {
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+th {
+  background-color: #eee;
+  cursor: pointer;
+}
+
+/* Form, szűrés és táblázat szekciók */
+.form-section, .filter-section, .table-section {
+  background: #fff;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+}
+
+.actions button {
+  margin-right: 5px;
+}
+
+/* Példák */
+.example {
+  display: none;
+}
+
+/* Rövidebb CSS kód hozzáadása */
+
+/* Navigáció */
+nav {
+  margin: 20px 0;
+  background-color: #333;
+  color: white;
+}
+
+nav a {
+  color: white;
+  padding: 10px;
+  text-decoration: none;
+}
+
+nav a:hover {
+  background-color: #575757;
+}
+
+.content {
+  margin-top: 20px;
 }

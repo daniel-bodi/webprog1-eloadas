@@ -3,32 +3,184 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web-programozás-1</title>
+    <title>HTML5 Példák</title>
     <link rel="stylesheet" href="styles.css">
-    <script defer src="script.js"></script>
 </head>
+<!-- 
+body {
+    font-family: Arial, sans-serif;
+}
+nav {
+    margin: 20px 0;
+    background-color: #333;
+    color: white;
+    padding: 10px;
+}
+nav a {
+    color: white;
+    padding: 10px;
+    text-decoration: none;
+}
+nav a:hover {
+    background-color: #575757;
+}
+.content {
+    margin-top: 20px;
+}
+.example {
+    display: none;
+} -->
 <body>
+    
     <header>
-        <h1>Web-programozás-1 Előadás Házi feladat</h1>
+        <h1>HTML5 API Példák</h1>
     </header>
     <nav>
-        <ul>
-            <li><a href="index.html" class="active">Főoldal</a></li>
-            <li><a href="table.html">Táblázat</a></li>
-            <li><a href="html5.html">HTML5</a></li>
-            <li><a href="chart.html">ChartJS</a></li>
-            <li><a href="ajax.html">AJAX</a></li>
-            <li><a href="oojs.html">OOJS</a></li>
-        </ul>
+            <ul>
+                <li><a href="index.html" class="active">Főoldal</a></li>
+                <li><a href="table.html">Táblázat</a></li>
+                <li><a href="html5.html">HTML5</a></li>
+                <li><a href="chart.html">ChartJS</a></li>
+                <li><a href="ajax.html">AJAX</a></li>
+                <li><a href="oojs.html">OOJS</a></li>
+            </ul>
     </nav>
-    <aside>
-        <p>Oldalsáv tartalom</p>
-    </aside>
-    <div class="content">
-        <p>Üdvözöljük a Web-programozás-1 házi feladat oldalán!</p>
+    <nav>
+        <a href="#" onclick="showExample('webStorage')">Web Storage</a>
+        <a href="#" onclick="showExample('webWorkers')">Web Workers</a>
+        <a href="#" onclick="showExample('serverSentEvents')">Server-Sent Events</a>
+        <a href="#" onclick="showExample('geolocation')">Geolocation API</a>
+        <a href="#" onclick="showExample('dragDrop')">Drag and Drop</a>
+        <a href="#" onclick="showExample('canvas')">Canvas</a>
+        <a href="#" onclick="showExample('svg')">SVG</a>
+    </nav>
+
+<div class="content">
+
+    <!-- Web Storage Example -->
+    <div id="webStorage" class="example">
+        <h2>Web Storage</h2>
+        <p>A Web Storage lehetővé teszi az adatok tárolását a böngészőn belül, például a felhasználó neve vagy beállításai. Az alábbi példa elmenti a nevet a LocalStorage-ba.</p>
+        <button onclick="saveToLocalStorage()">Mentsd el a nevet</button>
+        <p id="localStorageResult"></p>
+        <script>
+            function saveToLocalStorage() {
+                localStorage.setItem("userName", "Krisztofer");
+                document.getElementById("localStorageResult").innerText = "Név elmentve: " + localStorage.getItem("userName");
+            }
+        </script>
     </div>
-    <footer>
-        <p>Készítette: Bajáki Kristóf ALJOX4 és Bódi Dániel - GFEKAK</p>
-    </footer>
+
+    <!-- Web Workers Example -->
+    <div id="webWorkers" class="example">
+        <h2>Web Workers</h2>
+        <p>A Web Workers lehetővé teszi a háttérben futó JavaScript szkriptek használatát, anélkül, hogy blokkolná a felhasználói felületet.</p>
+        <button onclick="startWorker()">Indítson Web Worker-t</button>
+        <p id="workerResult"></p>
+        <script>
+            function startWorker() {
+                const worker = new Worker(URL.createObjectURL(new Blob([`
+                    onmessage = function() {
+                        postMessage('Web Worker működik!');
+                    }
+                `])));
+                worker.onmessage = function(e) {
+                    document.getElementById("workerResult").innerText = e.data;
+                };
+                worker.postMessage('');
+            }
+        </script>
+    </div>
+
+    <!-- Server-Sent Events Example -->
+    <div id="serverSentEvents" class="example">
+        <h2>Server-Sent Events</h2>
+        <p>A Server-Sent Events (SSE) egy egyszerű módszer, hogy a szerver folyamatosan adatokat küldjön a böngészőnek anélkül, hogy folyamatosan kérni kellene a szervert.</p>
+        <button onclick="connectToServer()">Kapcsolódás</button>
+        <p id="sseResult"></p>
+        <script>
+            function connectToServer() {
+                const source = new EventSource("https://your-server.com/sse");
+                source.onmessage = function(event) {
+                    document.getElementById("sseResult").innerText = event.data;
+                };
+            }
+        </script>
+    </div>
+
+    <!-- Geolocation API Example -->
+    <div id="geolocation" class="example">
+        <h2>Geolocation API</h2>
+        <p>A Geolocation API segítségével hozzáférhetünk a felhasználó helyzetéhez, például annak GPS koordinátáihoz.</p>
+        <button onclick="getLocation()">Szerezd meg a helyzetet</button>
+        <p id="geoResult"></p>
+        <script>
+            function getLocation() {
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(function(position) {
+                        document.getElementById("geoResult").innerText = `Latitude: ${position.coords.latitude}, Longitude: ${position.coords.longitude}`;
+                    });
+                } else {
+                    document.getElementById("geoResult").innerText = "A geolokáció nem támogatott ezen a böngészőn.";
+                }
+            }
+        </script>
+    </div>
+
+    <!-- Drag and Drop API Example -->
+    <div id="dragDrop" class="example">
+        <h2>Drag and Drop API</h2>
+        <p>A Drag and Drop API lehetővé teszi, hogy a felhasználó egyszerűen húzzon és ejtsen elemeket a felületen.</p>
+        <div id="drag1" draggable="true" ondragstart="drag(event)" style="width: 100px; height: 100px; background-color: lightblue; margin: 10px;">Húzd ide</div>
+        <div id="dropArea" ondrop="drop(event)" ondragover="allowDrop(event)" style="width: 300px; height: 150px; border: 1px solid #000;"></div>
+        <script>
+            function allowDrop(ev) {
+                ev.preventDefault();
+            }
+
+            function drag(ev) {
+                ev.dataTransfer.setData("text", ev.target.id);
+            }
+
+            function drop(ev) {
+                ev.preventDefault();
+                const data = ev.dataTransfer.getData("text");
+                ev.target.appendChild(document.getElementById(data));
+            }
+        </script>
+    </div>
+
+    <!-- Canvas Example -->
+    <div id="canvas" class="example">
+        <h2>Canvas</h2>
+        <p>A Canvas API segítségével grafikákat és animációkat rajzolhatunk a weboldalunkon.</p>
+        <canvas id="myCanvas" width="200" height="100" style="border:1px solid #000000;"></canvas>
+        <script>
+            const canvas = document.getElementById("myCanvas");
+            const ctx = canvas.getContext("2d");
+            ctx.fillStyle = "#FF0000";
+            ctx.fillRect(0, 0, 150, 75);
+        </script>
+    </div>
+
+    <!-- SVG Example -->
+    <div id="svg" class="example">
+        <h2>SVG</h2>
+        <p>A Scalable Vector Graphics (SVG) egy XML-alapú formátum vektoros grafikai elemek létrehozásához.</p>
+        <svg width="100" height="100">
+            <circle cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="red" />
+        </svg>
+    </div>
+
+</div>
+
+<script>
+    function showExample(exampleId) {
+        const examples = document.querySelectorAll('.example');
+        examples.forEach(example => example.style.display = 'none');
+        document.getElementById(exampleId).style.display = 'block';
+    }
+</script>
+
 </body>
 </html>
