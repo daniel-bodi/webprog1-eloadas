@@ -37,8 +37,7 @@ nav ul li a {
 nav ul li a.active, nav ul li a:hover {
   background: #007bff;
 }
-
-/* Navigációs linkek színváltozása */
+/*  Navigációs linkek színváltozása */
 nav a:hover {
   background-color: #575757;
 }
@@ -54,7 +53,8 @@ aside {
 
 /* Tartalom */
 .content {
-  margin-left: 22%;
+  margin-left: 0;
+  margin-right: 0;
   padding: 2rem;
   background: white;
   min-height: 400px;
@@ -144,4 +144,15 @@ nav a:hover {
 
 .content {
   margin-top: 20px;
+}
+
+.chart-container {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+#chart {
+  width: 100% !important;
+  height: auto !important;
 }
