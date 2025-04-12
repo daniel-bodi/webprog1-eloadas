@@ -156,3 +156,90 @@ nav a:hover {
   width: 100% !important;
   height: auto !important;
 }
+
+/* Számológép konténerének stílusai */
+.calculator {
+  width: 320px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* A kijelző stílusai */
+.calculator #display {
+  width: 100%;
+  height: 60px;
+  background-color: #222;
+  color: #fff;
+  text-align: right;
+  line-height: 60px;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  padding: 0 10px;
+}
+
+/* Gombok sorozata */
+.calculator .button-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+/* Gombok általános stílusai */
+.calculator button {
+  width: 70px;
+  height: 70px;
+  font-size: 1.5rem;
+  background-color: #f0f0f0;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+/* Gombok hover állapota */
+.calculator button:hover {
+  background-color: #e0e0e0;
+}
+
+/* Gombok aktív állapota */
+.calculator button:active {
+  background-color: #ccc;
+}
+
+/* C gomb kiemelése (Clear gomb) */
+.calculator #clear {
+  background-color: #ff4d4d; /* Vörös szín */
+  color: white;
+}
+
+/* C gomb hover és active állapota */
+.calculator #clear:hover {
+  background-color: #ff1a1a;
+}
+
+.calculator #clear:active {
+  background-color: #e60000;
+}
+
+/* Külön gombok kiemelése, ha szükséges */
+.calculator button.operator {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.calculator button.operator:hover {
+  background-color: #45a049;
+}
+
+.calculator button.operator:active {
+  background-color: #388e3c;
+}
+
+/* Különböző oszlopok */
+.calculator button.wide {
+  width: 150px;
+}
