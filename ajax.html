@@ -3,32 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web-programozás-1</title>
+    <title>AJAX</title>
     <link rel="stylesheet" href="styles.css">
-    <script defer src="script.js"></script>
+    <script defer src="ajax.js"></script>
 </head>
 <body>
     <header>
         <h1>Web-programozás-1 Előadás Házi feladat</h1>
+        <h2>5. Feladat: AJAX</h2>
     </header>
     <nav>
         <ul>
-            <li><a href="index.html" class="active">Főoldal</a></li>
+            <li><a href="index.html">Főoldal</a></li>
             <li><a href="table.html">Táblázat</a></li>
             <li><a href="html5.html">HTML5</a></li>
             <li><a href="chart.html">ChartJS</a></li>
-            <li><a href="ajax.html">AJAX</a></li>
+            <li><a href="ajax.html" class="active">AJAX</a></li>
             <li><a href="oojs.html">OOJS</a></li>
         </ul>
     </nav>
-    <aside>
-        <p>Oldalsáv tartalom</p>
-    </aside>
-    <div class="content">
-        <p>Üdvözöljük a Web-programozás-1 házi feladat oldalán!</p>
-    </div>
-    <footer>
-        <p>Készítette: Bajáki Kristóf ALJOX4 és Bódi Dániel - GFEKAK</p>
-    </footer>
+    <main>
+        <section id="form-section" class="form-section">
+            <h2>Új diák hozzáadása</h2>
+            <form id="student-form">
+                <label>Név:</label>
+                <input type="text" id="name" required minlength="3" maxlength="20">
+
+                <label>Magasság:</label>
+                <input type="number" id="height" required min="120" max="300">
+
+                <label>Testsúly:</label>
+                <input type="number" id="weight" required min="30" max="250">
+
+                <button type="submit">Hozzáadás</button>
+            </form>
+        </section>
+
+        <section id="table-section" class="table-section">
+            <table id="student-table">
+                <thead>
+                <tr>
+                    <th>Azonosító</th>
+                    <th>Név</th>
+                    <th>Magasság</th>
+                    <th>Testsúly</th>
+                    <th>Művelet</th>
+                </tr>
+                </thead>
+                <tbody id="table-body">
+                </tbody>
+            </table>
+        </section>
+
+        <section id="data-section" class="table-section">
+            <div id="data-section-container">
+                <p><b>Magasságok összege:</b> 89</p>
+                <p><b>Magasságok átlaga:</b> 89</p>
+                <p><b>Magasságok maximuma:</b> 89</p>
+            </div>
+        </section>
+    </main>
+<footer>
+    <p>Készítette: Bajáki Kristóf ALJOX4 és Bódi Dániel - GFEKAK</p>
+</footer>
 </body>
 </html>
